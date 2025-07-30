@@ -1,0 +1,16 @@
+{
+    "name": "worker-to-http",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "deploy": "npm run build && wrangler deploy",
+        "dev": "wrangler dev",
+        "start": "wrangler dev",
+        "build": "rm -rf dist; eleventy"
+    },
+    "devDependencies": {
+        "@11ty/eleventy": "^3.1.2",
+        "wrangler": "^4.26.1"
+    }
+}
