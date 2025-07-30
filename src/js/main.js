@@ -24,3 +24,24 @@ worker.onmessage = (event) => {
 };
 
 worker.postMessage(['do-fetch', { isApp }]);
+
+const doFetch = async (args) => {
+    if (!isApp) {
+        logDOM('main-fetch', {
+            type: 'not-app',
+            message: 'This isn’t the app',
+        });
+        return;
+    }
+
+    try {
+        const res = await fetch('http://127.0.0.1:8080/hello');
+        const json = await res.json();
+        logDOM('main-fetch', { type: 'success', json });
+    } catch (error) {
+        console.error(error);
+        self.postMessage('main-fetch', { type: 'error', error });
+    }
+};
+
+doFetch();

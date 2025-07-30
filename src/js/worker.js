@@ -12,7 +12,7 @@ const doFetch = async (args) => {
         const json = await res.json();
         self.postMessage(['do-fetch', { type: 'success', json }]);
     } catch (error) {
-        console.log(error);
+        console.error(error);
         self.postMessage(['do-fetch', { type: 'error', error }]);
     }
 };
