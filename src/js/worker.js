@@ -8,7 +8,7 @@ const doFetch = async (args) => {
     }
 
     try {
-        const res = await fetch('http://127.0.0.1:8080/hello');
+        const res = await fetch('api://localhost/hello');
         const json = await res.json();
         self.postMessage(['worker-fetch', { type: 'success', json }]);
     } catch (error) {
