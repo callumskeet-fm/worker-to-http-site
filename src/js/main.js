@@ -23,7 +23,7 @@ worker.onmessage = (event) => {
     logDOM(name, args);
 };
 
-worker.postMessage(['do-fetch', { isApp }]);
+worker.postMessage(['worker-fetch', { isApp }]);
 
 const doFetch = async (args) => {
     if (!isApp) {
