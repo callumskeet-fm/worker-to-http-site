@@ -40,7 +40,7 @@ const doFetch = async (args) => {
         logDOM('main-fetch', { type: 'success', json });
     } catch (error) {
         console.error(error);
-        self.postMessage('main-fetch', { type: 'error', error });
+        logDOM('main-fetch', { type: 'error', error });
     }
 };
 
